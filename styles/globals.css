@@ -24,3 +24,16 @@ a {
     background: black;
   }
 }
+
+
+.block {
+    display: block;
+}
+
+.Mg-L20 {
+    margin-left: 20px;
+}
+
+.Mg-R20 {
+    margin-right: 20px;
+}

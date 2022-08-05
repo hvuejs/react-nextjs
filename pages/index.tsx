@@ -1,7 +1,9 @@
 import type { NextPage } from 'next'
 import Head from 'next/head'
 import Image from 'next/image'
-import styles from '../styles/Home.module.css'
+import styles from '../styles/Home.module.css';
+
+import Link from 'next/link'
 
 const Home: NextPage = () => {
   return (
@@ -51,6 +53,38 @@ const Home: NextPage = () => {
             </p>
           </a>
         </div>
+
+        <div className={styles.grid}>
+          <Link href="/news">
+            <a className={styles.card}>
+                <h2>新闻 &rarr;</h2>
+                <p>今天加大萨达是尽快三点卡解散的扩散啊.</p>
+            </a>
+          </Link>
+
+          <Link href="/about">
+            <a className={styles.card}>
+                <h2>关于我们 &rarr;</h2>
+                <p>Discover and deploy boilerplate example Next.js projects.</p>
+            </a>
+          </Link>
+
+          <Link href="/login">
+            <a className={styles.card}>
+                <h2>登录 &rarr;</h2>
+                <p>Discover and deploy boilerplate example Next.js projects.</p>
+            </a>
+          </Link>
+
+          <Link href="/404">
+            <a className={styles.card}>
+                <h2>出错 &rarr;</h2>
+                <p>Learn about Next.js in an interactive course with quizzes!</p>
+            </a>
+          </Link>
+        </div>
+
+
       </main>
 
       <footer className={styles.footer}>

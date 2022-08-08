@@ -1,32 +1,32 @@
-const isProd = process.env.NODE_ENV === "production";
+// const isProd = process.env.NODE_ENV === "production";
 
 
-function getBasePath() {
-    var basePath = "";
-    if (isProd) {
-        basePath = "/react-nextjs"
-    }
+// function getBasePath() {
+//     var basePath = "";
+//     if (isProd) {
+//         basePath = "/dist/"
+//     }
 
-    return basePath;
-}
+//     return basePath;
+// }
 
 // 域名二级目录配置
-const homepage = {
-    assetPrefix: getBasePath(), // 加前缀
-    basePath: getBasePath(), 
-    webpack(webpackConfig) {
-        webpackConfig.output.publicPath = getBasePath() + webpackConfig.output.publicPath; //资源生成前缀
-        return webpackConfig;
-    },
-    publicRuntimeConfig: {
-        basePath: getBasePath(), //写入路径
-    },
-}
+// const homepage = {
+//     assetPrefix: getBasePath(), // 加前缀
+//     basePath: getBasePath(), 
+//     webpack(webpackConfig) {
+//         webpackConfig.output.publicPath = getBasePath() + webpackConfig.output.publicPath; //资源生成前缀
+//         return webpackConfig;
+//     },
+//     publicRuntimeConfig: {
+//         basePath: getBasePath(), //写入路径
+//     },
+// }
 
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-    ...homepage,
+    assetPrefix: ".",
     reactStrictMode: true,
     swcMinify: true,
     async rewrites() {

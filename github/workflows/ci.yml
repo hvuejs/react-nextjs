@@ -33,8 +33,6 @@ jobs:
         run: |
           npm install
           npm run build:spa
-        env:
-          CI: true
         
         # 部署到 gh-pages
       - name: Deploy 🚀

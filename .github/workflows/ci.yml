@@ -22,11 +22,19 @@ jobs:
       - uses: actions/checkout@v3
 
       # Runs a single command using the runners shell
-      - name: Run a one-line script
-        run: echo Hello, world!
+      - name: Setup Nodejs
+        uses: actions/setup-node@v1
+        with:
+          node-version: "14"
 
       # Runs a set of commands using the runners shell
-      - name: Run a multi-line script
+      - name: Install And Build
         run: |
-          echo Add other actions to build,
-          echo test, and deploy your project.
+          npm install
+          npm run build:spa
+      
+      - name: Deploy 🚀
+        uses: JamesIves/github-pages-deploy-action@v4.4.0
+        with:
+          BRANCH: gh-pages
+          FOLDER: out

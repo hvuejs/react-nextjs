@@ -1,0 +1,45 @@
+name: CI
+
+# 触发 workflow 的事件
+on: 
+  push: 
+    branches:
+      - main
+
+# 一个workflow由执行的一项或多项job
+jobs:
+  # 一个job任务，任务名为build
+  build:
+    # 运行在最新版ubuntu系统中
+    runs-on: ubuntu-latest
+    # 步骤合集
+    steps:
+      # 新建一个名为 checkout 的步骤
+      - name: Checkout 🛎️
+        #使用checkout@v2这个action获取源码
+        uses: actions/checkout@v2
+        with:
+          # 指定分支
+          ref: main
+      # 安装 nodejs 
+      - name: Setup Node.js 🔧
+        uses: actions/setup-node@v1
+        with:
+          # 安装指定版本
+          node-version: 14.18.0
+      
+      - name: Npm Install And Build 🔧
+        #执行执行某个shell命令或脚本
+        run: |
+          npm install
+          npm run build:spa
+        
+        # 部署到 gh-pages
+      - name: Deploy 🚀
+        uses: JamesIves/github-pages-deploy-action@v4.4.0
+        with:
+          token: ${{ github.token }}
+          # 这是您希望部署到的分支，例如 gh-pages 或 docs。
+          BRANCH: gh-pages
+          # 要部署的存储库中的文件夹。如果你的构建脚本编译到一个名为 build 的目录中，你可以把它放在这里。文件夹路径不能有前导 / 或 ./。如果您希望部署根目录，您可以放置​​一个 . 这里。
+          folder: out 

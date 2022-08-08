@@ -25,9 +25,16 @@ a {
   }
 }
 
+.pointer {
+    cursor: pointer;
+}
 
 .block {
     display: block;
+}
+
+.Mg-T20 {
+    margin-top: 20px;
 }
 
 .Mg-L20 {
@@ -36,4 +43,8 @@ a {
 
 .Mg-R20 {
     margin-right: 20px;
+}
+
+.text-center {
+    text-align: center;
 }

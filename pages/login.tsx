@@ -1,7 +1,7 @@
 import type { NextPage } from "next";
 import { SetStateAction, useState } from "react";
-
-const Login: NextPage = ({ data }: any) => {
+// import Image from "next/image";
+const Login: NextPage = () => {
     
 
     const [username, setUsername] = useState("");
@@ -51,7 +51,7 @@ const Login: NextPage = ({ data }: any) => {
                 <div>
                     <input type="text" value={ code } onChange={ onChangeCode } placeholder="验证码" />
                     {/* eslint-disable-next-line @next/next/no-img-element */}
-                    <img src="http://test.api.yunyikang.net/manage/captcha.html" onClick={ handleRefreshCode } alt="" />
+                    <img src="http://test.api.yunyikang.net/manage/captcha.html" className="pointer" onClick={ handleRefreshCode } alt="" />
                 </div>
                 <div>
                     <input type="button" onClick={ handleSubmit } value="登录" />
@@ -61,13 +61,14 @@ const Login: NextPage = ({ data }: any) => {
     );
 };
 
-export async function getServerSideProps() {
-    // Fetch data from external API
-    const res = await fetch("http://test.api.yunyikang.net/manage/admin/hos_list");
-    const data = await res.json();
-    console.log(data);
-    // Pass data to the page via props
-    return { props: { data } };
-}
+
+// export async function getServerSideProps() {
+//     // Fetch data from external API
+//     const res = await fetch("http://test.api.yunyikang.net/manage/admin/hos_list");
+//     const data = await res.json();
+//     console.log(data);
+//     // Pass data to the page via props
+//     return { props: { data } };
+// }
 
 export default Login;

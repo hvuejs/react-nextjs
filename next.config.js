@@ -13,6 +13,12 @@ const nextConfig = {
             ],
         };
     },
+    experimental: {
+        outputStandalone: true,
+        images: {
+            unoptimized: true,
+        },
+    },
 };
 
 module.exports = nextConfig;

@@ -1,12 +1,12 @@
 # This is a basic workflow to help you get started with Actions
 
-name: Build and Deploy
+name: CI
 
 # Controls when the workflow will run
 on:
   # Triggers the workflow on push or pull request events but only for the "main" branch
   push:
-    branches:
+    branches: 
       - main
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
@@ -18,32 +18,22 @@ jobs:
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+    
       - name: Checkout 🛎️
-      - uses: actions/checkout@v3
-        with: 
-          ref: main
+        uses: actions/checkout@v3
 
-      - name: Setup Node.js 🔧
+      - name: Setup Nodejs 🔧
         uses: actions/setup-node@v1
         with:
-          # 安装指定版本
-          node-version: 14.18.0
+          node-version: "14"
 
-      # Runs a set of commands using the runners shell
       - name: Install And Build 🔧
         run: |
           npm install
           npm run build:spa
-        env:
-          CI: true
-       
+      
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@v4.4.0
         with:
-          branch: gh-pages
-          branch: out
-          # token: ${{ secrets.GITHUB_TOKEN }}
-          
-        
-          
+          BRANCH: gh-pages
+          FOLDER: out

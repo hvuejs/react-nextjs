@@ -1,14 +1,13 @@
-// const isProd = process.env.NODE_ENV === "production";
+const isProd = process.env.NODE_ENV === "production";
 
 
-// function getBasePath() {
-//     var basePath = "";
-//     if (isProd) {
-//         basePath = "/dist/"
-//     }
-
-//     return basePath;
-// }
+function getBasePath() {
+    var basePath = "";
+    if (isProd) {
+        basePath = "/react-nextjs"
+    }
+    return basePath;
+}
 
 // 域名二级目录配置
 // const homepage = {
@@ -26,7 +25,8 @@
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-    assetPrefix: ".",
+    basePath: getBasePath(),
+
     reactStrictMode: true,
     swcMinify: true,
     async rewrites() {

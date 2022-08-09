@@ -166,7 +166,7 @@ const Captcha = (props: CaptchaProps) => {
     
         drawText (ctx: CanvasRenderingContext2D, txt: string, i: number) {
             ctx.fillStyle = this.randomColor(colorMin, colorMax)
-            ctx.font = this.randomNum(fontSizeMin, fontSizeMax) + 'px SimHei'
+            ctx.font = this.randomNum(fontSizeMin, fontSizeMax) + 'px SimHei';
             const x = (i + 1) * (width / (identifyCode.length + 1))
             const y = this.randomNum(fontSizeMax, height - 5)
             var deg = this.randomNum(-45, 45)
@@ -182,21 +182,21 @@ const Captcha = (props: CaptchaProps) => {
         // 绘制干扰线
         drawLine (ctx: CanvasRenderingContext2D) {
             for (let i = 0; i < 5; i++) {
-            ctx.strokeStyle = this.randomColor(lineColorMin, lineColorMax)
-            ctx.beginPath()
-            ctx.moveTo(this.randomNum(0, width), this.randomNum(0, height))
-            ctx.lineTo(this.randomNum(0, width), this.randomNum(0, height))
-            ctx.stroke()
+                ctx.strokeStyle = this.randomColor(lineColorMin, lineColorMax)
+                ctx.beginPath()
+                ctx.moveTo(this.randomNum(0, width), this.randomNum(0, height))
+                ctx.lineTo(this.randomNum(0, width), this.randomNum(0, height))
+                ctx.stroke()
             }
         },
     
         // 绘制干扰点
         drawDot (ctx: CanvasRenderingContext2D) {
-            for (let i = 0; i < 80; i++) {
-            ctx.fillStyle = this.randomColor(0, 255)
-            ctx.beginPath()
-            ctx.arc(this.randomNum(0, width), this.randomNum(0, height), 1, 0, 2 * Math.PI)
-            ctx.fill()
+            for (let i = 0; i < 30; i++) {
+                ctx.fillStyle = this.randomColor(0, 255)
+                ctx.beginPath()
+                ctx.arc(this.randomNum(0, width), this.randomNum(0, height), 1, 0, 2 * Math.PI)
+                ctx.fill()
             }
         }
     }
